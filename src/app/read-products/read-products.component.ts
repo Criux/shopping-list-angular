@@ -64,8 +64,8 @@ deleteProduct(id){
     ngOnInit(){
         this.productService.readProducts()
             .subscribe(products =>
-                //this.products=products['records']
-                this.products=products
+                this.products=products['records']
+                //this.products=products
             );
             console.log(this.products);
     }

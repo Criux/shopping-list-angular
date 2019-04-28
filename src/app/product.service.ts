@@ -18,7 +18,7 @@ export class ProductService {
     readProducts(): Observable<Product[]>{
  
         return this._http
-            .get("http://einkaufsliste.ifa7c.de/api/product/read.php")
+            .get("http://lerngruppe.marinos.xyz/api/product/read.php")
             .pipe(map((res: Response) => res.json()));
     }
  	// Send product data to remote server to create it.
@@ -29,7 +29,7 @@ createProduct(product): Observable<Product>{
 
  
     return this._http.post(
-        "http://einkaufsliste.ifa7c.de/api/product/create.php",
+        "http://lerngruppe.marinos.xyz/api/product/create.php",
         product,
         options
         ).pipe(map((res: Response) => res.json()));
@@ -37,7 +37,7 @@ createProduct(product): Observable<Product>{
     // Get a product details from remote server.
 readOneProduct(product_id): Observable<Product>{
     return this._http
-        .get("http://einkaufsliste.ifa7c.de/api/product/read_one.php?id="+product_id)
+        .get("http://lerngruppe.marinos.xyz/api/product/read_one.php?id="+product_id)
         .pipe(map((res: Response) => res.json()));
 }
 // Send product data to remote server to update it.
@@ -47,7 +47,7 @@ updateProduct(product): Observable<Product>{
     let options = new RequestOptions({ headers: headers });
  
     return this._http.post(
-        "http://einkaufsliste.ifa7c.de/api/product/update.php",
+        "http://lerngruppe.marinos.xyz/api/product/update.php",
         product,
         options
     ).pipe(map((res: Response) => res.json()));
@@ -59,7 +59,7 @@ deleteProduct(product_id){
     let options = new RequestOptions({ headers: headers });
  
     return this._http.post(
-        "http://einkaufsliste.ifa7c.de/api/product/delete.php",
+        "http://lerngruppe.marinos.xyz/api/product/delete.php",
         { id: product_id },
         options
     ).pipe(map((res: Response) => res.json()));

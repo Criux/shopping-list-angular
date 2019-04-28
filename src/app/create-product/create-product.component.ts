@@ -33,10 +33,10 @@ export class CreateProductComponent {
     ){
         // based on our html form, build our angular form
         this.create_product_form = formBuilder.group({
-            name: ["poop", Validators.required],
-            price: ["2", Validators.required],
-            description: ["2", Validators.required],
-            category_id: ["6", Validators.required]
+            name: ["", Validators.required],
+            price: ["", Validators.required],
+            description: ["", Validators.required],
+            category_id: ["", Validators.required]
         });
     }
  
