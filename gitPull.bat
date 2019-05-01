@@ -1,0 +1,1 @@
+cd C:\Angular\shopping-list && git pull origin master

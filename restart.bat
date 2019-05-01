@@ -1,0 +1,1 @@
+cd C:\Angular\shopping-list && start cmd /k C:\Angular\shopping-list\start_dev.bat
