@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
  
 export class AppComponent {
     // properties for child components
-    title="Read Products ";
+    title="Read Products";
     product_id;
  
     // properties used to identify what views to show
