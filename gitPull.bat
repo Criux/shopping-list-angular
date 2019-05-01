@@ -1,1 +1,1 @@
-cd C:\Angular\shopping-list && git pull origin master
+cd G:\testProjects\angular-crud-level-one && git pull shopping-list-angular master

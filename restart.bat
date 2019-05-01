@@ -1,1 +1,1 @@
-cd C:\Angular\shopping-list && start cmd /k C:\Angular\shopping-list\start_dev.bat
+cd G:\testProjects\angular-crud-level-one && start cmd /k G:\testProjects\angular-crud-level-one\start_dev.bat
