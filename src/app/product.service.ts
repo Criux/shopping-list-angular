@@ -18,7 +18,8 @@ export class ProductService {
     readProducts(): Observable<Product[]>{
  
         return this._http
-            .get("http://localhost:9100/api/product/read.php")
+            // .get("http://localhost:9100/api/product/read.php")
+            .get("http://localhost:8080/java-service/rest/products?store_id=REWE541754")
             .pipe(map((res: Response) => res.json()));
     }
  	// Send product data to remote server to create it.

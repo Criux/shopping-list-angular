@@ -19,7 +19,7 @@ export class AppComponent {
 	show_update_product_html=false;
 	show_delete_product_html=false;
 
-	// show the 'create product form'
+	/*// show the 'create product form'
 	showCreateProduct($event){
 	 
 	    // set title
@@ -79,5 +79,5 @@ showDeleteProduct($event){
     // hide all html then show only one html
     this.hideAll_Html();
     this.show_delete_product_html=true;
-}
+}*/
 }

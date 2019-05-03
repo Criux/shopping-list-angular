@@ -23,30 +23,30 @@
 <div class="container">
  
     <!-- show page header -->
-    <div class="row">
+    <!--<div class="row">
         <div class="col-md-12">
             <div class='page-header'><h1>{{title}}</h1></div>
         </div>
-    </div>
- 
+    </div>-->
+  
     <!-- Show this view if "show_read_products_html" property of AppComponent is true. -->
-    <app-read-products
+    <!--<app-read-products
         *ngIf="show_read_products_html"
         (show_create_product_event)="showCreateProduct($event)"
         (show_read_one_product_event)="showReadOneProduct($event)"
         (show_update_product_event)="showUpdateProduct($event)"
         (show_delete_product_event)="showDeleteProduct($event)">>
-    </app-read-products>
+    </app-read-products>-->
     <!--
     * Show this view if "show_create_product_html" is true.
  
     * If (show_read_products_event) was emitted in CreateProductComponent,
       trigger showReadProducts() method in AppComponent.
 -->
-<app-create-product
+<!--<app-create-product
     *ngIf="show_create_product_html"
     (show_read_products_event)="showReadProducts($event)">
-</app-create-product>
+</app-create-product>-->
 <!--
     * Show this view if "show_read_one_product_html" is true.
  
@@ -56,11 +56,11 @@
     * Pass "product_id" property value of AppComponent
       to [product_id] property of ReadOneProductComponent.
 -->
-<app-read-one-product
+<!--<app-read-one-product
     *ngIf="show_read_one_product_html"
     (show_read_products_event)="showReadProducts($event)"
     [product_id]="product_id">
-</app-read-one-product>
+</app-read-one-product>-->
 <!--
     * Show this view if "show_update_product_html" is true.
  
@@ -70,11 +70,11 @@
     * If (show_read_products_event) was emitted in UpdateProductComponent,
       trigger showReadProducts() method in AppComponent.
 -->
-<app-update-product
+<!--<app-update-product
     *ngIf="show_update_product_html"
     [product_id]="product_id"
     (show_read_products_event)="showReadProducts($event)">
-</app-update-product>
+</app-update-product>-->
 <!--
     * Show this view if "show_delete_product_html" is true.
  
@@ -84,11 +84,30 @@
     * If (show_read_products_event) was emitted in DeleteProductComponent,
       trigger showReadProducts() method in AppComponent.
 -->
-<app-delete-product
+<!--<app-delete-product
     *ngIf="show_delete_product_html"
     [product_id]="product_id"
     (show_read_products_event)="showReadProducts($event)">
 </app-delete-product>
- 
+  -->
+<div class="headerContainer">
+    <div class="logo">
+      <img src="/assets/einkaufsliste_logo.png" />
+    </div>
+    <div class="title">
+      <h1>Die Einkaufsliste</h1>
+    </div>
+    <div class="userInfo">
+      <div class="greeting">
+        Hallo, Marie
+      </div>
+      <div class="userPhoto">
+        <img src="/assets/userlogo1.png" />
+      </div>
+    </div>
+  </div>
+  <app-shoppinglist>
+
+  </app-shoppinglist>
 </div>
 <!-- /container -->

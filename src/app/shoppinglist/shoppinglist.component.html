@@ -1,0 +1,34 @@
+
+	<div class="mainContainer">
+		<script>
+			
+		</script>
+		<div class="example-form">
+  			<mat-form-field class="example-full-width">
+					<input name="inputField" class="searchText" type="text" matInput [formControl]="myControl"  #trigger="matAutocompleteTrigger" [matAutocomplete]="auto" placeholder="Tippe etwas ein... (z.B Milch)">
+				
+				<mat-autocomplete name="ACField" #auto="matAutocomplete" [displayWith]="displayFn" showPanel="false">
+				  <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+				    {{ option.name }}
+				  </mat-option>
+				</mat-autocomplete>
+			</mat-form-field>
+		</div>
+		<div class="listContainer">
+			<!--<ul *ngFor="let product of products">
+			    <li class="productElement">
+			    	<div class="productImage">
+			    		<img src={{product.pictureUrl}} >
+			    	</div>
+			    	<div class="productInfo">
+			    		<h3>{{product.name}}</h3>
+			      		<p>{{product.description}}</p>
+			    	</div>
+			    	<div class="productPrice">
+			    		<h3>{{product.originalPrice}} €</h3>
+			    	</div>
+			    </li>
+			</ul>-->
+		</div>
+	</div>
+

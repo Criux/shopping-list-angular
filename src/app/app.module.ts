@@ -11,7 +11,8 @@ import { ReadOneProductComponent } from './read-one-product/read-one-product.com
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { DeleteProductComponent } from './delete-product/delete-product.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule,MatFormFieldModule,MatAutocompleteModule,MatOption,MatInputModule,MatFormField} from '@angular/material';
+import { ShoppinglistComponent } from './shoppinglist/shoppinglist.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
     CreateProductComponent,
     ReadOneProductComponent,
     UpdateProductComponent,
-    DeleteProductComponent
+    DeleteProductComponent,
+    ShoppinglistComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,10 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
     HttpModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule,
+    MatAutocompleteModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
