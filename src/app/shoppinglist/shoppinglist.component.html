@@ -1,34 +1,58 @@
 
-	<div class="mainContainer">
-		<script>
-			
-		</script>
-		<div class="example-form">
-  			<mat-form-field class="example-full-width">
-					<input name="inputField" class="searchText" type="text" matInput [formControl]="myControl"  #trigger="matAutocompleteTrigger" [matAutocomplete]="auto" placeholder="Tippe etwas ein... (z.B Milch)">
-				
-				<mat-autocomplete name="ACField" #auto="matAutocomplete" [displayWith]="displayFn" showPanel="false">
+	<div class="mainContainer" >
+		
+		<form class="example-form">
+  			<mat-form-field class="example-full-width" >
+				<input name="inputField" class="searchText" type="text" matInput [formControl]="myControl"  [matAutocomplete]="auto" placeholder="Tippen Sie etwas ein... (z.B Milch)">
+				<mat-autocomplete name="ACField" #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)='addToList($event.option.value)'>
 				  <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
 				    {{ option.name }}
 				  </mat-option>
 				</mat-autocomplete>
 			</mat-form-field>
-		</div>
-		<div class="listContainer">
-			<!--<ul *ngFor="let product of products">
-			    <li class="productElement">
+		</form>
+		<div class="listContainer" >
+			<h3 *ngIf="displayHelperMessage()" style="margin:auto;width:400px;text-align:center">
+				Ihre Einkaufsliste ist leer... 
+			</h3>
+			<ul *ngFor="let listElement of userShoppingListActive">
+			    <li class="productElement" (click)="toggleElementStatus(listElement)">
 			    	<div class="productImage">
-			    		<img src={{product.pictureUrl}} >
+			    		<img src={{listElement.product.pictureUrl}} >
 			    	</div>
 			    	<div class="productInfo">
-			    		<h3>{{product.name}}</h3>
-			      		<p>{{product.description}}</p>
+			    		<h3>{{listElement.product.name}}</h3>
+			      		<p>{{listElement.product.description}}</p>
+			    	</div>
+			    	<div>
+			    		<h3>{{showAmount(listElement)}}</h3>
 			    	</div>
 			    	<div class="productPrice">
-			    		<h3>{{product.originalPrice}} €</h3>
+			    		<h3>{{listElement.product.originalPrice}} €</h3>
 			    	</div>
+
 			    </li>
-			</ul>-->
+			</ul>
+			<hr class="listSeperator" *ngIf="displayHR()"/>
+			<ul class="inactiveList" *ngFor="let listElement of userShoppingListInactive">
+			    <li class="productElement" (click)="toggleElementStatus(listElement)">
+			    	<div class="productImage">
+			    		<img src={{listElement.product.pictureUrl}} >
+			    	</div>
+			    	<div class="productInfo">
+			    		<h3>{{listElement.product.name}}</h3>
+			      		<p>{{listElement.product.description}}</p>
+			    	</div>
+			    	<div>
+			    		<h3>{{showAmount(listElement)}}</h3>
+			    	</div>
+			    	<div class="productPrice">
+			    		<h3>{{listElement.product.originalPrice}} €</h3>
+			    	</div>
+
+			    </li>
+			</ul>
 		</div>
+		
 	</div>
 

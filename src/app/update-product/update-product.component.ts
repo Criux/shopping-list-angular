@@ -32,8 +32,8 @@ export class UpdateProductComponent implements OnChanges {
         this.update_product_form = this.formBuilder.group({
             name: ["", Validators.required],
             price: ["", Validators.required],
-            description: ["", Validators.required],
-            category_id: ["", Validators.required]
+            description2: ["", Validators.required]
+            //,            category_id: ["", Validators.required]
         });
     }
  
@@ -70,9 +70,9 @@ export class UpdateProductComponent implements OnChanges {
                 // put values in the form
                 this.update_product_form.patchValue({
                     name: product.name,
-                    price: product.price,
-                    description: product.description,
-                    category_id: product.category_id
+                    price: product.originalPrice,
+                    description: product.description2
+                    //,                    category_id: product.category_id
                 });
             });
     }

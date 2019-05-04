@@ -25,6 +25,7 @@ import { ShoppinglistComponent } from './shoppinglist/shoppinglist.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpModule,
     ReactiveFormsModule,
