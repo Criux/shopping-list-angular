@@ -1,5 +1,5 @@
 
-	<div class="mainContainer" >
+	<div class="container" >
 		
 		<form class="example-form">
   			<mat-form-field class="example-full-width" >
@@ -12,23 +12,28 @@
 			</mat-form-field>
 		</form>
 		<div class="listContainer" >
-			<h3 *ngIf="displayHelperMessage()" style="margin:auto;width:400px;text-align:center">
+			<div class="listInfo">
+				<h2><span style="color:#cc071e">REWE Regiemarkt GmbH</span></h2>
+				<div class="moneyTotal">
+					<h2>{{totalMoneyToPay()}} €</h2>
+				</div> 
+			</div>
+			<h3 *ngIf="displayHelperMessage()" style="margin:auto;text-align:center">
 				Ihre Einkaufsliste ist leer... 
 			</h3>
 			<ul *ngFor="let listElement of userShoppingListActive">
 			    <li class="productElement" (click)="toggleElementStatus(listElement)">
 			    	<div class="productImage">
-			    		<img src={{listElement.product.pictureUrl}} >
+			    		<img src={{showPictureUrl(listElement,160)}} >
 			    	</div>
 			    	<div class="productInfo">
-			    		<h3>{{listElement.product.name}}</h3>
-			      		<p>{{listElement.product.description}}</p>
+			    		{{listElement.product.name}}
 			    	</div>
-			    	<div>
-			    		<h3>{{showAmount(listElement)}}</h3>
+			    	<div class="productQuantity">
+			    		{{showAmount(listElement)}}
 			    	</div>
 			    	<div class="productPrice">
-			    		<h3>{{listElement.product.originalPrice}} €</h3>
+			    		{{showPrice(listElement)}} €
 			    	</div>
 
 			    </li>
@@ -40,14 +45,13 @@
 			    		<img src={{listElement.product.pictureUrl}} >
 			    	</div>
 			    	<div class="productInfo">
-			    		<h3>{{listElement.product.name}}</h3>
-			      		<p>{{listElement.product.description}}</p>
+			    		{{listElement.product.name}}
 			    	</div>
-			    	<div>
-			    		<h3>{{showAmount(listElement)}}</h3>
+			    	<div class="productQuantity">
+			    		{{showAmount(listElement)}}
 			    	</div>
 			    	<div class="productPrice">
-			    		<h3>{{listElement.product.originalPrice}} €</h3>
+			    		{{showPrice(listElement)}} €
 			    	</div>
 
 			    </li>

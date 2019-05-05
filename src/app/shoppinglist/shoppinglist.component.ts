@@ -64,7 +64,19 @@ displayFn(product?: Product): string | undefined {
   }
   addToList(product:Product){
     let toAdd:ListElement = {"list_id":"1","product":product,"amount":1,"isActive":true};
-    this.userShoppingList.push(toAdd);
+    let jobDone:boolean=false;
+    for(let inList of this.userShoppingList){
+      if(inList.product==toAdd.product){
+        inList.amount++;
+        inList.isActive=true;
+        jobDone=true;
+        break;
+        
+      }
+    }
+    if(!jobDone){
+      this.userShoppingList.push(toAdd);
+    }
     this.updateLists();
     if(this.myControl!==undefined){
       this.myControl.setValue('');  
@@ -73,6 +85,12 @@ displayFn(product?: Product): string | undefined {
   }
   showAmount(listElement:ListElement):String{
       return listElement.amount>1?"(x"+listElement.amount+")":"";
+  }
+  showPrice(listElement:ListElement):String{
+    return this.currencyFormatDE(listElement.product.originalPrice*listElement.amount);
+  }
+  showPictureUrl(listElement:ListElement,size:number):String{
+    return listElement.product.pictureUrl.split("|")[0]+"|"+size+":"+size+"";
   }
   toggleElementStatus(listElement:ListElement){
     listElement.isActive=!listElement.isActive;
@@ -92,7 +110,22 @@ displayFn(product?: Product): string | undefined {
   }
   displayHelperMessage():boolean{
     return this.userShoppingListActive.length==0;
-  }  	
+  }
+  totalMoneyToPay():String{
+    let total:number=0;
+    for(let listItem of this.userShoppingList){
+      total=total+listItem.product.originalPrice*listItem.amount;
+    }
+    return this.currencyFormatDE(total);
+  }
+  currencyFormatDE(num) {
+  return (
+    num
+      .toFixed(2) // always two decimal digits
+      .replace('.', ',') // replace decimal point character with ,
+      .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
+  ) // use . as a separator
+}  	
 }
 
 export class ShoppingList { 

@@ -19,7 +19,7 @@ export class ProductService {
  
         return this._http
             // .get("http://localhost:9100/api/product/read.php")
-            .get("http://localhost:8080/java-service/rest/products?store_id=REWE541754")
+            .get("http://einkaufsliste.ifa7c.de:8080/java-service/rest/products?store_id=REWE541754")
             .pipe(map((res: Response) => res.json()));
     }
  	// Send product data to remote server to create it.
